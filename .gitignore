@@ -1,0 +1,6 @@
+target/
+data/
+.maven-cache/
+.taste-skill/
+.idea/
+*.iml

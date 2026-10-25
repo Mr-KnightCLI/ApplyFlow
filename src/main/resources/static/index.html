@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f8">
+  <meta name="description" content="A clear place for every application, conversation and next move.">
+  <title>ApplyFlow — make the next move count</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="ApplyFlow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>applyflow</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview">Overview</a>
+        <a class="nav-link" href="#applications">Applications</a>
+        <a class="nav-link" href="#follow-ups">Follow-ups</a>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button mobile-search" id="mobile-search" aria-label="Focus search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <span class="account-mark" aria-label="Your workspace">A</span>
+        <button class="menu-button" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="workspace" id="overview">
+    <section class="welcome-row" aria-labelledby="page-title">
+      <div>
+        <p class="today-line" id="today-line">Your job search, at a glance</p>
+        <h1 id="page-title">Keep the good things moving.</h1>
+        <p class="welcome-copy">Every application has a next step. Here’s yours.</p>
+      </div>
+      <button class="button button-primary add-button" id="add-application"><span class="plus">+</span> Add application</button>
+    </section>
+
+    <section class="summary-grid" aria-label="Application summary">
+      <article class="summary-cell"><span class="summary-label">Applications</span><span class="summary-value" id="total-count">—</span><span class="summary-note">all the possibilities</span></article>
+      <article class="summary-cell"><span class="summary-label">In conversation</span><span class="summary-value" id="interview-count">—</span><span class="summary-note">interviewing now</span></article>
+      <article class="summary-cell"><span class="summary-label">Offers</span><span class="summary-value" id="offer-count">—</span><span class="summary-note">good news, captured</span></article>
+      <article class="summary-cell"><span class="summary-label">Follow-ups due</span><span class="summary-value" id="followup-count">—</span><span class="summary-note" id="followup-note">you’ve got this</span></article>
+    </section>
+
+    <section class="next-move" aria-labelledby="next-move-title">
+      <div class="next-move-copy">
+        <span class="eyebrow"><span class="live-dot"></span> YOUR MOMENTUM CUE</span>
+        <h2 id="next-move-title">One good next move.</h2>
+        <p id="next-move-description">A small, timely nudge can keep a good conversation going.</p>
+      </div>
+      <div class="next-move-action" id="next-move-action"><span class="move-orbit" aria-hidden="true"><i></i><i></i><i></i></span><span class="muted-message">Finding the next step…</span></div>
+      <span class="next-move-index" aria-hidden="true">01 / NEXT</span>
+    </section>
+
+    <section class="followup-strip" id="follow-ups" aria-labelledby="followup-heading">
+      <div class="followup-heading">
+        <div class="followup-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4.5 9h15M5 5h14a1 1 0 0 1 1 1v13H4V6a1 1 0 0 1 1-1Z"></path><path d="m9 14 2 2 4-4"></path></svg></div>
+        <div><h2 id="followup-heading">A little nudge, right on time</h2><p>Keep the conversation warm. The next seven days.</p></div>
+      </div>
+      <div class="followup-list" id="upcoming-list"><p class="muted-message">Finding your next steps…</p></div>
+    </section>
+
+    <section class="applications-section" id="applications" aria-labelledby="applications-heading">
+      <div class="section-heading">
+        <div><h2 id="applications-heading">Your applications</h2><p id="application-caption">Every possibility, in one place.</p></div>
+        <div class="view-switch" role="group" aria-label="Choose application view">
+          <button class="view-option selected" data-view="list" aria-pressed="true">List</button>
+          <button class="view-option" data-view="board" aria-pressed="false">Board</button>
+        </div>
+      </div>
+      <div class="toolbar">
+        <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg><input id="search-input" type="search" placeholder="Find a company or role" autocomplete="off"><kbd>/</kbd></label>
+        <label class="filter-field"><span class="sr-only">Filter by status</span><select id="status-filter"><option value="">Every stage</option><option value="WISHLIST">Wishlist</option><option value="APPLIED">Applied</option><option value="INTERVIEW">Interview</option><option value="OFFER">Offer</option><option value="REJECTED">Rejected</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg></label>
+        <span class="results-count" id="results-count"></span>
+      </div>
+      <div class="list-view" id="list-view">
+        <div class="table-head"><span>Company & role</span><span>Applied</span><span>Next follow-up</span><span>Stage</span><span class="sr-only">Actions</span></div>
+        <div class="application-list" id="application-list"><div class="loading-row">Gathering the details…</div></div>
+      </div>
+      <div class="board-view hidden" id="board-view" aria-label="Applications by stage"></div>
+      <div class="empty-state hidden" id="empty-state"><span class="empty-mark">↗</span><h3>No applications here yet</h3><p>Start with one company you’re excited about. We’ll keep the next step in view.</p><button class="button button-primary" id="empty-add">Add an application</button></div>
+    </section>
+    <footer class="page-footer"><span class="footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>applyflow</span><span>A calmer way to keep moving.</span></footer>
+  </main>
+
+  <dialog class="application-dialog" id="application-dialog" aria-labelledby="dialog-title">
+    <form id="application-form" novalidate>
+      <div class="dialog-top"><div><h2 id="dialog-title">Add an application</h2></div><button class="icon-button close-dialog" type="button" aria-label="Close dialog">×</button></div>
+      <input id="application-id" type="hidden">
+      <div class="form-grid">
+        <label class="form-field"><span>Company <b>*</b></span><input name="company" maxlength="120" placeholder="Where are you applying?" required><small class="field-error"></small></label>
+        <label class="form-field"><span>Role title <b>*</b></span><input name="roleTitle" maxlength="160" placeholder="What will you do?" required><small class="field-error"></small></label>
+        <label class="form-field form-wide"><span>Job link</span><input name="jobLink" type="url" maxlength="2048" placeholder="https://company.com/careers/role"><small class="field-error"></small></label>
+        <label class="form-field"><span>Application date <b>*</b></span><input name="applicationDate" type="date" required><small class="field-error"></small></label>
+        <label class="form-field"><span>Current stage <b>*</b></span><select name="status" required><option value="WISHLIST">Wishlist</option><option value="APPLIED">Applied</option><option value="INTERVIEW">Interview</option><option value="OFFER">Offer</option><option value="REJECTED">Rejected</option></select><small class="field-error"></small></label>
+        <label class="form-field"><span>Follow-up date</span><input name="followUpDate" type="date"><small class="field-error"></small></label>
+        <label class="form-field form-wide"><span>Notes for future you</span><textarea name="notes" rows="3" maxlength="3000" placeholder="A person to follow up with, something to prepare, or a detail worth remembering…"></textarea><small class="field-error"></small></label>
+      </div>
+      <p class="form-message" id="form-message" role="alert"></p>
+      <div class="dialog-actions"><button class="button button-quiet cancel-dialog" type="button">Maybe later</button><button class="button button-primary" type="submit" id="save-application">Save application</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
